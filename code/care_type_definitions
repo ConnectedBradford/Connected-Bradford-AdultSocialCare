@@ -1,0 +1,76 @@
+##Andy Clegg advisory social care defintions for different types of care##
+##Home care definition##
+
+SELECT 
+a.person_id as person_id,
+a.src_ServicestartDate as ServicestartDate,
+a.src_ServiceType as ServiceType,
+a.src_FinalisedPSR as FinalisedPSR,
+b.gender_source_value as gender_source_value,
+ date_diff(ifnull(b.death_datetime, (Select extract_date from `yhcr-prd-phm-bia-core.CY_LOOKUPS.tbl_Dataset_ExtractDateRef` where DataSetName = 'Adult social care' )
+), date(b.birth_datetime), year) as age
+ FROM
+  `yhcr-prd-phm-bia-core.CY_FDM_AdultSocialCare.src_Services` a
+  inner join `yhcr-prd-phm-bia-core.CY_FDM_AdultSocialCare.person` b
+  on (a.person_id = b.person_id)
+  where src_ServiceType = 'Home Care'
+AND
+(src_FinalisedPSR LIKE 'Physical Support%'
+OR
+src_FinalisedPSR LIKE 'Mental%'
+OR
+src_FinalisedPSR  LIKE 'Sensory%'
+OR
+src_FinalisedPSR   LIKE 'Social%'
+OR
+src_FinalisedPSR   LIKE 'Support with Memory and Cognition%')
+order by age desc
+
+##Nursing definition## 
+
+SELECT 
+a.person_id,
+a.src_ServicestartDate,
+a.src_ServiceType,
+a.src_FinalisedPSR,
+b.gender_source_value,
+ date_diff(ifnull(b.death_datetime, (Select extract_date from `yhcr-prd-phm-bia-core.CY_LOOKUPS.tbl_Dataset_ExtractDateRef` where DataSetName = 'Adult social care' )
+), date(b.birth_datetime), year) as age
+ FROM
+  `yhcr-prd-phm-bia-core.CY_FDM_AdultSocialCare.src_Services` a
+  inner join `yhcr-prd-phm-bia-core.CY_FDM_AdultSocialCare.person` b
+  on (a.person_id = b.person_id)
+  where src_ServiceType = 'Nursing'
+order by src_ServicestartDate asc
+
+##Residential##
+
+SELECT 
+a.person_id as person_id,
+a.fdm_start_date as src_ServicestartDate,
+EXTRACT(YEAR FROM fdm_start_date) AS service_start_year,
+a.src_ServiceType as ServiceType,
+a.src_FinalisedPSR as FinalisedPSR,
+con1.concept_name as gender,
+ date_diff(ifnull(b.death_datetime, (Select extract_date from `yhcr-prd-phm-bia-core.CY_LOOKUPS.tbl_Dataset_ExtractDateRef` where DataSetName = 'Adult social care' )
+), date(b.birth_datetime), year) as age
+ FROM
+  `yhcr-prd-phm-bia-core.CY_FDM_AdultSocialCare.src_Services` a
+  inner join `yhcr-prd-phm-bia-core.CY_FDM_AdultSocialCare.person` b
+  on (a.person_id = b.person_id)
+  left join `yhcr-prd-phm-bia-core.CY_CDM_VOCAB.concept` con1
+on b.gender_concept_id = con1.concept_id and con1.vocabulary_id = 'Gender'
+  where src_ServiceType = 'Residential'
+order by src_ServicestartDate asc
+
+
+
+
+
+
+
+
+
+
+
+

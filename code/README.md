@@ -1,4 +1,3 @@
-# FDM Code
 
 # visit_occurence template
 

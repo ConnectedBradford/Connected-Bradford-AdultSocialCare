@@ -1,4 +1,6 @@
 
+# Background notes
+
 #### person and observation_period tables used building the file: 'fdm_builder_basics_tutorial.ipynb' - which can be found in the code folder
 
 #### care_site is not applicable for this dataset, as all are Bradford Council

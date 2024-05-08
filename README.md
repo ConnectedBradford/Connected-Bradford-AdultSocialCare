@@ -19,9 +19,8 @@ This dataset and page is maintained by [Robert Shore](https://actearly.org.uk/te
 
 # Adult Social Care
 
-📌 *The adult social care FDM is made up of three source tables (summarised below and data dictionaries linked) from routinely collected adult social care data by City of Bradford Metropolitan District Council (CBMDC) for 48,375 individuals and their contacts, assessments and service types and dates.* *The Assessment and Contacts table range from 2017-2020, while the Services table covers 2008-2020*.
+📌 *The adult social care FDM is made up of three source tables (summarised below and data dictionaries linked) from routinely collected adult social care data by City of Bradford Metropolitan District Council (CBMDC) for 48,375 individuals and their contacts, assessments and service types and dates.* *The Assessment and Contacts table range from 2017-2024, while the Services table covers 2008-2024*.
 
-*The source tables are largely populated by fields with the prefix 'src_'. When you see the 'src_' prefix, this means that field has not been reformatted by the Connected Bradford team and it is included in its raw form.*
 
 📁 **What is an FDM?**
 
@@ -48,45 +47,34 @@ This dataset and page is maintained by [Robert Shore](https://actearly.org.uk/te
 *Use fields from the person table for all analysis related to birth, death and any demographics*
 
 
-
-
 🔎 **observation_period**
 
-48,375 individuals 
-
+82,568 individuals covering the period 2008-08-22	to	2024-03-31
 
 *The observation_period table contains records which define spans of time during which two conditions are expected to hold: (i) Clinical Events that happened to the Person are recorded in event fields in the source tables and visit_occurence and (ii) absence of records indicate such Events did not occur during this span of time.*
 
 *The validated minimum and maximum of additional ‘event’ dates are stored in the observation_period table, while all validated 'events' are stored in the visit_occurence table. observation_period records can be as short as a single day.*
 
-
-🏥 **visit_occurence**
-
-220,938 records
-
-
-*The visit_occurence table contains Events where Persons engage with adult social care for a duration of time. They are often also referred to by OMOP as 'Encounters'. Visits are defined by a configuration of circumstances under which they occur, such as whether the patient comes into contact  with social care, the other way around, or the interaction is remote. All validated 'events' are stored in the visit_occurence table.*
-
 ### Source tables in this dataset
 
-*There are three source tables in this dataset. Source tables are those that have had little to no manipulation other than to validate any event dates. All source field are prefixed with 'src_'. The three source tables in the adult social care data set are:*
+*There are three source tables in this dataset. Source tables are those that have had little to no manipulation other than to validate any event dates. All source field are prefixed with 'tbl_'. The three source tables in the adult social care data set are:*
 
-### src_Assessments
+### tbl_AdultSocialcare_assessments -
 
-*The Assessment table collects all 'event' records related to a dated assessment by adult social care. There are 4,1084 records (2017-2020) in this table across 26 different types of assessment, ranging from Adult Assessments, Mental Capacity Assessments and Support Plan Reviews.*
+*The Assessment table collects all 'event' records related to a dated assessment by adult social care. There are 189,969 records (2017-2020) in this table across 26 different types of assessment, ranging from Adult Assessments, Mental Capacity Assessments and Support Plan Reviews.*
 
-### src_Contacts
+### tbl_AdultSocialcare_contacts
 
-*The Contacts tables contains 11,3602 records (2017-2019) of any contact and date between individuals and adult social care. Routinely collected data included in this table:*
+*The Contacts tables contains 403,308 recordsof any contact and date between individuals and adult social care. Routinely collected data included in this table:*
 
 - *69 different types of contact source (e.g. self-referral, family/friends, police)*
 - *14 different types of contact route (e.g. Community, hospital discharge)*
 - *37 different contact reasons (e.g. Access Point Screening, Blue Badge applications, Safeguarding)*
 - *80 different types of contact outcomes (e.g. Advice, progress to assessment, referrals)*
 
-### src_Services
+### tbl_AdultSocialcareA_services
 
-*The Services table has 40,965 (2008-2020) records for 16 different types of service for each individual (e.g. home care, residential, nursing, respite) and Primary Support Reasons (e.g. physical support, social support, learning disability support) and includes service start and service end dates.*
+*The Services table has 167,614  (2008-2020) records for 16 different types of service for each individual (e.g. home care, residential, nursing, respite) and Primary Support Reasons (e.g. physical support, social support, learning disability support) and includes service start and service end dates.*
 
 
 ## Useful links

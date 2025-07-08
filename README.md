@@ -19,7 +19,7 @@ This dataset and page is maintained by [Robert Shore](https://actearly.org.uk/te
 
 # Adult Social Care
 
-📌 *The adult social care FDM is made up of three source tables (summarised below and data dictionaries linked) from routinely collected adult social care data by City of Bradford Metropolitan District Council (CBMDC) for 48,375 individuals and their contacts, assessments and service types and dates.* *The Assessment and Contacts table range from 2017-2024, while the Services table covers 2008-2024*.
+📌 *The adult social care FDM is made up of three source tables (summarised below and data dictionaries linked) from routinely collected adult social care data by City of Bradford Metropolitan District Council (CBMDC) for 90,035 individuals and their contacts, assessments and service types and dates.* *The Assessment and Contacts table range from 2017-2024, while the Services table covers 2008-2025*.
 
 
 📁 **What is an FDM?**
@@ -36,7 +36,7 @@ This dataset and page is maintained by [Robert Shore](https://actearly.org.uk/te
 
 🧍 **person**
 
-48,375 individuals 
+90,035 individuals 
 
 *This table serves as the central identity management for all Persons in the database. It contains records that uniquely identify each person or patient, and some demographic information. All records in this table are independent Persons. All Persons in this database have one record in this table, unless they fail data quality requirements specified, e.g. an event from the source tables pre-dates their date of birth or exceeds any date of death by more than 42 days (42 days is the time period allowed due to processing of deaths).*
 
@@ -49,7 +49,7 @@ This dataset and page is maintained by [Robert Shore](https://actearly.org.uk/te
 
 🔎 **observation_period**
 
-82,568 individuals covering the period 2008-08-22	to	2024-03-31
+90,035 individuals covering the period 2008-08-22	to	2025-09-01
 
 *The observation_period table contains records which define spans of time during which two conditions are expected to hold: (i) Clinical Events that happened to the Person are recorded in event fields in the source tables and visit_occurence and (ii) absence of records indicate such Events did not occur during this span of time.*
 
@@ -72,9 +72,9 @@ This dataset and page is maintained by [Robert Shore](https://actearly.org.uk/te
 - *37 different contact reasons (e.g. Access Point Screening, Blue Badge applications, Safeguarding)*
 - *80 different types of contact outcomes (e.g. Advice, progress to assessment, referrals)*
 
-### tbl_AdultSocialcareA_services
+### tbl_AdultSocialcare_services
 
-*The Services table has 167,614  (2008-2020) records for 16 different types of service for each individual (e.g. home care, residential, nursing, respite) and Primary Support Reasons (e.g. physical support, social support, learning disability support) and includes service start and service end dates.*
+*The Services table has 33,386  (2008-2025) records for 16 different types of service for each individual (e.g. home care, residential, nursing, respite) and Primary Support Reasons (e.g. physical support, social support, learning disability support) and includes service start and service end dates.*
 
 
 ## Useful links
